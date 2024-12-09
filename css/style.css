@@ -1,0 +1,25 @@
+#game-container {
+ 
+}
+
+tr {
+}
+
+td {
+    width:1px;
+    height:1px;
+}
+
+.board-row {
+
+}
+
+.alive {
+    background-color: black;
+}
+
+.dead {
+    background-color: white;
+}
+
+        
