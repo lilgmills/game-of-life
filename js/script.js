@@ -1,23 +1,23 @@
 const GameOfLife = class {
-    constructor(numCols, numRows) {
+    constructor(numCols, numRows, concentration) {
         this.height= numRows;
         this.width = numCols;
         this.GameCellArray = []
-        this.initializeCellArray();
+        this.initializeCellArray(concentration);
         this.DrawGameBoard();
 
-        setInterval(this.runGame.bind(this), 5000);
+        setInterval(this.runGame.bind(this), 100);
         
         
     }
 
     
 
-    initializeCellArray = () => {
+    initializeCellArray = (concentration) => {
         for (let j = 0; j<this.height; j++) {
             this.GameCellArray.push([]);
             for (let i = 0; i<this.width; i++) {
-                this.GameCellArray[j].push(new GameCell(i, j, Math.floor(Math.random()*2) == 0?true:false));
+                this.GameCellArray[j].push(new GameCell(i, j, Math.floor(Math.random()/Math.min(Math.max(concentration/100, 0.0001),1))== 0?true:false));
             }
 
         }
@@ -141,6 +141,6 @@ const GameCell = class {
 
 const gameContainer = document.getElementById('game-container');
 
-x = new GameOfLife(600,600)
+x = new GameOfLife(100,60,15)
 
 
